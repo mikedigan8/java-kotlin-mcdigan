@@ -1,3 +1,3 @@
 # Java-Kotlin Hello World Application
 
-This is some test code for my hello world project.
+This is the test Hello World Application created in Andriod Studio.
