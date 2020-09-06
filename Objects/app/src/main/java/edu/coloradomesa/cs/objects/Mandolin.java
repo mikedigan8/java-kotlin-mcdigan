@@ -31,13 +31,14 @@ public class Mandolin {
     // allows the user to change the strings
     // changing strings makes the mandolin out of tune
     public void setStrings(int strings) {
-        if (strings < 0 || this.stringMax > 12) {
+        if (strings < 0 || this.stringMax < strings) {
             String message = "String count must be between 0 and " + this.stringMax + ". " +
                 strings + " does not fall in this range.";
             throw new UnsupportedOperationException(message);
         } else {
             this.strings = strings;
             this.inTune = false;
+            this.playedHours = 0.0;
         }
     }
 
@@ -65,12 +66,14 @@ public class Mandolin {
                 if (playedHours + hours < 10) {
                     playing = true;
                     playedHours += hours;
+                    volume = 5;
                 } else {
+                    inTune = false;
+                    playedHours = 10;
                     String message = "You can only play for " + (10 - playedHours) + " more hours before going out of tune. " +
                             "You must re-tune your mandolin before playing for the remaining " + (hours - (10 - playedHours)) +
                             " hours.";
-                    System.out.println(message);
-                    inTune = false;
+                    throw new UnsupportedOperationException(message);
                 }
             }
             else {
@@ -102,11 +105,12 @@ public class Mandolin {
             else {
                 String message = "The volume must be between 0.0 and 10.0. " + volume +
                         " does not meet this requirement.";
-                System.out.println(message);
+                throw new UnsupportedOperationException(message);
             }
         }
         else {
-            System.out.println("You must be playing before you can set the volume.");
+            String message = "You must be playing before you can set the volume.";
+            throw new UnsupportedOperationException(message);
         }
     }
 
@@ -121,6 +125,4 @@ public class Mandolin {
             this.stringMax = strings;
         }
     }
-
-
 }
