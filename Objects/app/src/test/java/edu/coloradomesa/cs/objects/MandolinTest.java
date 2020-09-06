@@ -53,14 +53,14 @@ public class MandolinTest {
     }
 
     @Test
-    public void getinTune() {
+    public void getInTune() {
         int maxString = 10;
         Mandolin inst = new Mandolin(maxString);
-        assertTrue(inst.getinTune());
+        assertTrue(inst.getInTune());
 
         int newStrings = 8;
         inst.setStrings(newStrings);
-        assertFalse(inst.getinTune());
+        assertFalse(inst.getInTune());
     }
 
     @Test
@@ -71,7 +71,7 @@ public class MandolinTest {
         int newStrings = 8;
         inst.setStrings(newStrings);
         inst.setInTune();
-        assertTrue(inst.getinTune());
+        assertTrue(inst.getInTune());
     }
 
     @Test
