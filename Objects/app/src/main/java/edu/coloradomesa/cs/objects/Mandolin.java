@@ -34,7 +34,7 @@ public class Mandolin {
         if (strings < 0 || this.stringMax < strings) {
             String message = "String count must be between 0 and " + this.stringMax + ". " +
                 strings + " does not fall in this range.";
-            throw new UnsupportedOperationException(message);
+            throw new IllegalArgumentException(message);
         } else {
             this.strings = strings;
             this.inTune = false;
@@ -73,15 +73,15 @@ public class Mandolin {
                     String message = "You can only play for " + (10 - playedHours) + " more hours before going out of tune. " +
                             "You must re-tune your mandolin before playing for the remaining " + (hours - (10 - playedHours)) +
                             " hours.";
-                    throw new UnsupportedOperationException(message);
+                    throw new IllegalArgumentException(message);
                 }
             }
             else {
-                throw new UnsupportedOperationException("You must play for a positive number of hours.");
+                throw new IllegalArgumentException("You must play for a positive number of hours.");
             }
         }
         else {
-            throw new UnsupportedOperationException("You must be in tune before you start playing.");
+            throw new IllegalArgumentException("You must be in tune before you start playing.");
         }
     }
 
@@ -106,12 +106,12 @@ public class Mandolin {
             else {
                 String message = "The volume must be between 0.0 and 10.0. " + volume +
                         " does not meet this requirement.";
-                throw new UnsupportedOperationException(message);
+                throw new IllegalArgumentException(message);
             }
         }
         else {
             String message = "You must be playing before you can set the volume.";
-            throw new UnsupportedOperationException(message);
+            throw new IllegalArgumentException(message);
         }
     }
 
@@ -120,7 +120,7 @@ public class Mandolin {
         if (strings < 8 || strings > 12 || strings % 2 != 0) {
             String message = "Mandolins have and even number of strings between 8 and 12 (inclusive). " + strings +
                     " is not an acceptable number of strings.";
-            throw new UnsupportedOperationException(message);
+            throw new IllegalArgumentException(message);
         } else {
             this.strings = strings;
             this.stringMax = strings;

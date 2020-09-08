@@ -19,7 +19,7 @@ public class MandolinTest {
             Mandolin inst2 = new Mandolin(strings);
             assertEquals(0,1);
         }
-        catch (UnsupportedOperationException er) {
+        catch (IllegalArgumentException er) {
             assertEquals(1,1);
         }
     }
@@ -40,7 +40,7 @@ public class MandolinTest {
             inst.setStrings(strings);
             assertEquals(0,1);
         }
-        catch (UnsupportedOperationException er) {
+        catch (IllegalArgumentException er) {
             assertEquals(1,1);
         }
     }
@@ -98,7 +98,7 @@ public class MandolinTest {
             inst.startPlaying(15);
             assertEquals(0,1);
         }
-        catch (UnsupportedOperationException er) {
+        catch (IllegalArgumentException er) {
             assertEquals(1,1);
         }
 
@@ -108,7 +108,16 @@ public class MandolinTest {
             inst.startPlaying(1);
             assertEquals(0,1);
         }
-        catch (UnsupportedOperationException er) {
+        catch (IllegalArgumentException er) {
+            assertEquals(1,1);
+        }
+
+        // can only play for a positive number of hours
+        try {
+            inst.startPlaying(-1);
+            assertEquals(0,1);
+        }
+        catch (IllegalArgumentException er) {
             assertEquals(1,1);
         }
 
@@ -145,7 +154,7 @@ public class MandolinTest {
             inst.startPlaying(15);
             assertEquals(0,1);
         }
-        catch (UnsupportedOperationException er) {
+        catch (IllegalArgumentException er) {
             assertEquals(1,1);
         }
     }
@@ -168,7 +177,7 @@ public class MandolinTest {
             inst.setVolume(5.5);
             assertEquals(0,1);
         }
-        catch (UnsupportedOperationException er) {
+        catch (IllegalArgumentException er) {
             assertEquals(1, 1);
         }
 
@@ -186,7 +195,7 @@ public class MandolinTest {
             inst.setVolume(-1);
             assertEquals(0,1);
         }
-        catch (UnsupportedOperationException er){
+        catch (IllegalArgumentException er){
             assertEquals(1,1);
         }
 
@@ -194,7 +203,7 @@ public class MandolinTest {
             inst.setVolume(15);
             assertEquals(0,1);
         }
-        catch (UnsupportedOperationException er) {
+        catch (IllegalArgumentException er) {
             assertEquals(1,1);
         }
     }
