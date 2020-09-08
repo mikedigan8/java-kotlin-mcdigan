@@ -114,6 +114,7 @@ public class MandolinTest {
 
         // can only play for a positive number of hours
         inst.setInTune();
+
         try {
             inst.startPlaying(-1);
             assertEquals(0,1);
