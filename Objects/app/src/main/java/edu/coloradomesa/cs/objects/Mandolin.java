@@ -23,7 +23,11 @@ public class Mandolin {
     // the volume of the mandolin is set to 0 when not being played
     // ranges from 0.1 to 10.0 when being played
     private double volume = 0.0;
-    
+    private double maxVolume =10.0;
+
+    // the number of hours you can play a mandolin before it goes out of tune
+    private int outOfTuneHours = 10;
+
     public int getStrings() {
         return strings;
     }
@@ -63,15 +67,15 @@ public class Mandolin {
     public void startPlaying(double hours) {
         if(inTune) {
             if(hours > 0.0) {
-                if (playedHours + hours < 10) {
+                if (playedHours + hours < outOfTuneHours) {
                     playing = true;
                     playedHours += hours;
                     volume = 5;
                 } else {
                     inTune = false;
-                    playedHours = 10;
-                    String message = "You can only play for " + (10 - playedHours) + " more hours before going out of tune. " +
-                            "You must re-tune your mandolin before playing for the remaining " + (hours - (10 - playedHours)) +
+                    playedHours = outOfTuneHours;
+                    String message = "You can only play for " + (outOfTuneHours - playedHours) + " more hours before going out of tune. " +
+                            "You must re-tune your mandolin before playing for the remaining " + (hours - (outOfTuneHours - playedHours)) +
                             " hours.";
                     throw new IllegalArgumentException(message);
                 }
@@ -100,11 +104,11 @@ public class Mandolin {
 
     public void setVolume(double volume) {
         if(playing) {
-            if(volume > 0.0 && volume < 10.0) {
+            if(volume > 0.0 && volume < maxVolume) {
                 this.volume = volume;
             }
             else {
-                String message = "The volume must be between 0.0 and 10.0. " + volume +
+                String message = "The volume must be between 0.0 and " + maxVolume + " " + volume +
                         " does not meet this requirement.";
                 throw new IllegalArgumentException(message);
             }
