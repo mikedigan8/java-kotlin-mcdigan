@@ -23,7 +23,7 @@ public class Mandolin {
     // the volume of the mandolin is set to 0 when not being played
     // ranges from 0.1 to 10.0 when being played
     private double volume = 0.0;
-    private double maxVolume =10.0;
+    private double maxVolume = 10.0;
 
     // the number of hours you can play a mandolin before it goes out of tune
     private int outOfTuneHours = 10;
@@ -104,11 +104,11 @@ public class Mandolin {
 
     public void setVolume(double volume) {
         if(playing) {
-            if(volume > 0.0 && volume < maxVolume) {
+            if(volume >= 0.0 && volume <= maxVolume) {
                 this.volume = volume;
             }
             else {
-                String message = "The volume must be between 0.0 and " + maxVolume + " " + volume +
+                String message = "The volume must be between 0.0 and " + maxVolume + ", " + volume +
                         " does not meet this requirement.";
                 throw new IllegalArgumentException(message);
             }
