@@ -1,4 +1,4 @@
-# Java-Kotlin Fall 2020 Project 1
+# Java-Kotlin Fall 2020 Project 1 & 2
 
 ## Description of the project
 
@@ -104,10 +104,10 @@
 
 ### Properties
 
-- setVolume: The default volume a flat backed mandolin
-- electric: A boolean indicating whether the mandolin is electric
-- pluggedIn: A boolean indicating whether the mandolin is plugged in to an amplifier
-    - Being plugged in allows the volume of the mandolin to increase by double
+- outOfTuneHours: Bowl back mandolins stay in tune longer than regular mandolins, so this mandolin can last 20 hours before it goes out of tune
+- holeType: A char describing the shape of the hole in the instrument
+    - oVolume: If the instrument has an 'O' hole the volume maximum is 15
+    - fVolume: If the instrument has an 'F' hole the volume maximum is 12.5
 
 ---
 
@@ -115,10 +115,8 @@
 
 ### Methods
 
-- setPluggedIn: Sets the status of plugged in to either 'true' or 'false'
-    - If true the volume is doubled, and if false the volume returns to what it was before being plugged in
-    - The mandolin must be electric to be plugged in
-- isPluggedIn: Returns a boolean indicating if the mandolin is plugged in
-- isElectric: Returns a boolean indicating if the mandolin is electric
-- getVolume: An overridden method using the sub-classes instance of volume instead of the super's
-- setVolume: An overridden method using the sub-classes definition of maxVolume instead of the super's
+- getHoleType: Returns a char indicating the hole type
+- getVolume: An overridden method that returns the volume of the mandolin
+- setVolume: An overridden method that lets you set the volume of the instrument
+- startPlaying: An overridden method that lets the user start playing the instrument
+- getPlayedHours: An overridden method that returns the amount of hours played
