@@ -3,9 +3,13 @@
 ## Description of the project
 
 ---
-
+### Part 1
 - Create a Java class with various properties and methods
 - Use unit tests to ensure that the class is working as expected
+
+### Part 2
+- Add a class hierarchy to the already existing class
+- Implement unit tests to verify the classes are working
 
 <br> 
 
@@ -62,3 +66,59 @@
 ---
 
 
+## Description of the flat back class
+
+---
+
+<br>
+
+### Properties
+
+- setVolume: The default volume a flat backed mandolin
+- electric: A boolean indicating whether the mandolin is electric
+- pluggedIn: A boolean indicating whether the mandolin is plugged in to an amplifier
+    - Being plugged in allows the volume of the mandolin to increase by double
+
+---
+
+<br>
+
+### Methods
+
+- setPluggedIn: Sets the status of plugged in to either 'true' or 'false'
+    - If true the volume is doubled, and if false the volume returns to what it was before being plugged in
+    - The mandolin must be electric to be plugged in
+- isPluggedIn: Returns a boolean indicating if the mandolin is plugged in
+- isElectric: Returns a boolean indicating if the mandolin is electric
+- getVolume: An overridden method using the sub-classes instance of volume instead of the super's
+- setVolume: An overridden method using the sub-classes definition of maxVolume instead of the super's
+
+---
+
+
+## Description of the bowl back class
+
+---
+
+<br>
+
+### Properties
+
+- setVolume: The default volume a flat backed mandolin
+- electric: A boolean indicating whether the mandolin is electric
+- pluggedIn: A boolean indicating whether the mandolin is plugged in to an amplifier
+    - Being plugged in allows the volume of the mandolin to increase by double
+
+---
+
+<br>
+
+### Methods
+
+- setPluggedIn: Sets the status of plugged in to either 'true' or 'false'
+    - If true the volume is doubled, and if false the volume returns to what it was before being plugged in
+    - The mandolin must be electric to be plugged in
+- isPluggedIn: Returns a boolean indicating if the mandolin is plugged in
+- isElectric: Returns a boolean indicating if the mandolin is electric
+- getVolume: An overridden method using the sub-classes instance of volume instead of the super's
+- setVolume: An overridden method using the sub-classes definition of maxVolume instead of the super's

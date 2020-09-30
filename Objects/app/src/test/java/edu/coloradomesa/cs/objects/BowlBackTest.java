@@ -72,4 +72,36 @@ public class BowlBackTest {
         mando2.setVolume(vol);
         assertEquals(vol, mando2.getVolume(), 0.0);
     }
+
+    @Test
+    public void testHours() {
+        BowlBack mando = new BowlBack();
+        double hours = 15;
+        mando.startPlaying(hours);
+        assertEquals(15, mando.getPlayedHours(), 0.0);
+
+        try {
+            mando.startPlaying(hours);
+            fail();
+        } catch(IllegalArgumentException er) {
+            assertTrue(true);
+        }
+
+        mando.setInTune(false);
+        try {
+            mando.startPlaying(1);
+            fail();
+        } catch(IllegalArgumentException er) {
+            assertTrue(true);
+        }
+
+        mando.setInTune(true);
+        try {
+            mando.startPlaying(-1);
+            fail();
+        } catch(IllegalArgumentException er) {
+            assertTrue(true);
+        }
+
+    }
 }

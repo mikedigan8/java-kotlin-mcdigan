@@ -5,6 +5,8 @@ public class BowlBack extends Mandolin {
     // Bowl back mandolins hold their tune better than other kinds of mandolins
     // they can play for twice as long before going out of tune
     private int outOfTuneHours = 20;
+    private boolean playing = false;
+    private double playedHours = 0;
 
     // Bowl back mandolins can have either an F-hole or a
     // round hole in their body
@@ -58,7 +60,7 @@ public class BowlBack extends Mandolin {
 
     @Override
     public void setVolume(double volume) {
-        if(super.getPlaying()) {
+        if(playing) {
             if(volume >= 0.0 && volume <= maxVolume) {
                 this.volume = volume;
             }
@@ -72,5 +74,36 @@ public class BowlBack extends Mandolin {
             String message = "You must be playing before you can set the volume.";
             throw new IllegalArgumentException(message);
         }
+    }
+
+    @Override
+    public void startPlaying(double hours) {
+        if(super.getInTune()) {
+            if(hours > 0.0) {
+                if (playedHours + hours < outOfTuneHours) {
+                    playing = true;
+                    playedHours += hours;
+                    volume = 5;
+                } else {
+                    super.setInTune(false);
+                    playedHours = outOfTuneHours;
+                    String message = "You can only play for " + (outOfTuneHours - playedHours) + " more hours before going out of tune. " +
+                            "You must re-tune your mandolin before playing for the remaining " + (hours - (outOfTuneHours - playedHours)) +
+                            " hours.";
+                    throw new IllegalArgumentException(message);
+                }
+            }
+            else {
+                throw new IllegalArgumentException("You must play for a positive number of hours.");
+            }
+        }
+        else {
+            throw new IllegalArgumentException("You must be in tune before you start playing.");
+        }
+    }
+
+    @Override
+    public double getPlayedHours() {
+        return playedHours;
     }
 }

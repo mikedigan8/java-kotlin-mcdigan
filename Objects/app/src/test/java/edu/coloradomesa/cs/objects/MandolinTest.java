@@ -70,7 +70,7 @@ public class MandolinTest {
 
         int newStrings = 8;
         inst.setStrings(newStrings);
-        inst.setInTune();
+        inst.setInTune(true);
         assertTrue(inst.getInTune());
     }
 
@@ -113,7 +113,7 @@ public class MandolinTest {
         }
 
         // can only play for a positive number of hours
-        inst.setInTune();
+        inst.setInTune(true);
 
         try {
             inst.startPlaying(-1);

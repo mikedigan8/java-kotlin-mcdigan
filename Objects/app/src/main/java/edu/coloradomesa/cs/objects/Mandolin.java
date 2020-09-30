@@ -54,10 +54,12 @@ public class Mandolin {
         return inTune;
     }
 
-    public void setInTune() {
-        inTune = true;
-        // resetting the number of hours you can play while in tune
-        playedHours = 0;
+    public void setInTune(boolean inTune) {
+        this.inTune = inTune;
+        if(inTune) {
+            // resetting the number of hours you can play while in tune
+            playedHours = 0;
+        }
     }
 
     public boolean getPlaying() {
