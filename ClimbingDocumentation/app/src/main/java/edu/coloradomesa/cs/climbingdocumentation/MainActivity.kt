@@ -6,13 +6,10 @@ import android.os.Bundle
 import android.view.View
 
 
-import androidx.core.view.isEmpty
-import edu.coloradomesa.cs.climbingdocumentation.ClimbInfo
-
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    var climbsList = ArrayList<ClimbInfo>()
+    val climbsList = ArrayList<ClimbInfo>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,20 +18,33 @@ class MainActivity : AppCompatActivity() {
 
     fun goToDisplayList(view: View) {
         val intent = Intent(this, DisplayActivity::class.java)
-        intent.putExtra("climbList", climbsList)
+        intent.putExtra("climbsList",climbsList)
         startActivity(intent)
     }
 
     fun addClimbToList(view: View) {
-        if (mainClimbName.text.isEmpty()) mainClimbName.setText(R.string.no_name)
-        else if (mainClimbGrade.text.isEmpty()) mainClimbGrade.setText(R.string.no_grade)
-        else if (mainClimbDate.text.isEmpty()) mainClimbDate.setText(R.string.no_date)
-        else {
-            val type: Char
-            if(boulderClimb.isChecked) type = 'B'
-            else type = 'R'
+        var add: Boolean = true
+        if (mainClimbName.text.isEmpty()) {
+            mainClimbName.setText(R.string.no_name)
+            add = false
+        }
+        if (mainClimbGrade.text.isEmpty()) {
+            mainClimbGrade.setText(R.string.no_grade)
+            add = false
+        }
+        if (mainClimbDate.text.isEmpty()) {
+            mainClimbDate.setText(R.string.no_date)
+            add = false
+        }
+        if(add) {
+            val type: String
+            if(boulderClimb.isChecked) type = "Boulder"
+            else type = "Roped Climb"
             val newClimb = ClimbInfo(type, mainClimbName.toString(), mainClimbGrade.toString(), mainClimbDate.toString())
             climbsList.add(newClimb)
+            mainClimbName.setText("")
+            mainClimbGrade.setText("")
+            mainClimbDate.setText("")
         }
     }
 }

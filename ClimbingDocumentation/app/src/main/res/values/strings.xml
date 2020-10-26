@@ -12,4 +12,9 @@
     <string name="no_date">Enter a climb date</string>
     <string name="no_grade">Enter a climb grade</string>
     <string name="view_climb_list">View Climb List</string>
+    <string name="add_more_climbs">Add More Climbs</string>
+    <string name="last">Last</string>
+    <string name="next">Next</string>
+    <string name="no_climbs_in_list1">Add climbs to see</string>
+    <string name="no_climbs_in_list2">your list here</string>
 </resources>
