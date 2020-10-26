@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">ClimbingDocumentation</string>
+    <string name="add_new_climbs">Add New Climbs</string>
+    <string name="roped_climb">Roped Climb</string>
+    <string name="climb_name">Climb Name</string>
+    <string name="grade">Grade</string>
+    <string name="date_climbed">Date Climbed</string>
+    <string name="boulder">Boulder</string>
+    <string name="add_new_climb">Add New Climb</string>
+    <string name="view_list">View List</string>
+    <string name="no_name">Enter a climb name</string>
+    <string name="no_date">Enter a climb date</string>
+    <string name="no_grade">Enter a climb grade</string>
+    <string name="view_climb_list">View Climb List</string>
+</resources>

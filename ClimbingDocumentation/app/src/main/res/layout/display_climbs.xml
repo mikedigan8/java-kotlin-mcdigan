@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/headingMainAct"
+        android:layout_width="212dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="68dp"
+        android:text="@string/view_climb_list"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/dispClimbType"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dispClimbType"
+        android:layout_width="223dp"
+        android:layout_height="0dp"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/dispClimbName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headingMainAct" />
+
+    <TextView
+        android:id="@+id/dispClimbDate"
+        android:layout_width="223dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="442dp"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dispClimbGrade" />
+
+    <TextView
+        android:id="@+id/dispClimbGrade"
+        android:layout_width="223dp"
+        android:layout_height="0dp"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/dispClimbDate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dispClimbName" />
+
+    <TextView
+        android:id="@+id/dispClimbName"
+        android:layout_width="223dp"
+        android:layout_height="0dp"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/dispClimbGrade"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dispClimbType" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
