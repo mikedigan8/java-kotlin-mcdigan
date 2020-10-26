@@ -22,30 +22,30 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/lastClimb"
+        android:id="@+id/dispNext"
         android:layout_width="73dp"
         android:layout_height="45dp"
         android:layout_marginStart="322dp"
         android:layout_marginTop="546dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="140dp"
-        android:onClick="lastClimb"
-        android:text="@string/last"
+        android:onClick="nextClimb"
+        android:text="@string/next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/dispNext"
+        android:id="@+id/dispLast"
         android:layout_width="71dp"
         android:layout_height="45dp"
         android:layout_marginStart="224dp"
         android:layout_marginTop="546dp"
         android:layout_marginEnd="116dp"
         android:layout_marginBottom="140dp"
-        android:onClick="nextClimb"
-        android:text="@string/next"
+        android:onClick="lastClimb"
+        android:text="@string/last"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

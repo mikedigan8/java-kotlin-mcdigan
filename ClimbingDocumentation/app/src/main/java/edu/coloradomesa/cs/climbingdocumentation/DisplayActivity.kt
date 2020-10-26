@@ -4,48 +4,63 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-
-
-import androidx.core.view.isEmpty
 import edu.coloradomesa.cs.climbingdocumentation.ClimbInfo
-import kotlinx.android.synthetic.main.activity_main.*
-
 import kotlinx.android.synthetic.main.display_climbs.*
+
 
 class DisplayActivity : AppCompatActivity() {
 
     var i: Int = 0
+    private var tempClimbList = ArrayList<ClimbInfo>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val climbsList = intent.getSerializableExtra("climbsList") as? ArrayList<ClimbInfo>
+        if (climbsList != null) {
+            tempClimbList = climbsList
+        }
         super.onCreate(savedInstanceState)
         setContentView(R.layout.display_climbs)
         if (climbsList != null) {
-            if (i > climbsList.size - 1) i = climbsList.size - 1
-            else if (i < 0) i = 0
-            else if (climbsList.get(i).type == " ") {
+            if (climbsList.size == 0) {
                 dispClimbType.setText(R.string.no_climbs_in_list1)
                 dispClimbName.setText(R.string.no_climbs_in_list2)
             }
             else {
-                dispClimbType.setText(climbsList.get(i).type)
-                dispClimbName.setText(climbsList.get(i).name)
-                dispClimbGrade.setText(climbsList.get(i).grade)
-                dispClimbDate.setText(climbsList.get(i).date)
+                dispClimbType.setText(climbsList.get(0).type)
+                dispClimbName.setText(climbsList.get(0).name)
+                dispClimbGrade.setText(climbsList.get(0).grade)
+                dispClimbDate.setText(climbsList.get(0).date)
             }
+        }
+        else {
+            dispClimbType.setText(R.string.no_climbs_in_list1)
+            dispClimbName.setText(R.string.no_climbs_in_list2)
         }
     }
 
     fun goToMainAct(view: View) {
         val intent = Intent(this, MainActivity::class.java)
+        intent.putExtra("climbsList",tempClimbList)
         startActivity(intent)
     }
 
     fun nextClimb(view: View) {
-        i++;
+        if(i < tempClimbList.size - 1) {
+            i++
+            dispClimbType.setText(tempClimbList.get(i).type)
+            dispClimbName.setText(tempClimbList.get(i).name)
+            dispClimbGrade.setText(tempClimbList.get(i).grade)
+            dispClimbDate.setText(tempClimbList.get(i).date)
+        }
     }
 
     fun lastClimb(view: View) {
-        i--;
+        if(i > 0) {
+            i--
+            dispClimbType.setText(tempClimbList.get(i).type)
+            dispClimbName.setText(tempClimbList.get(i).name)
+            dispClimbGrade.setText(tempClimbList.get(i).grade)
+            dispClimbDate.setText(tempClimbList.get(i).date)
+        }
     }
 }

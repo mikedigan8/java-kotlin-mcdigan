@@ -1,20 +1,25 @@
 package edu.coloradomesa.cs.climbingdocumentation
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-
-
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    val climbsList = ArrayList<ClimbInfo>()
+    private var climbsList = ArrayList<ClimbInfo>()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val climbsListTemp = intent.getSerializableExtra("climbsList") as? ArrayList<ClimbInfo>
+        if (climbsListTemp != null) {
+            climbsList = climbsListTemp
+        }
     }
+
 
     fun goToDisplayList(view: View) {
         val intent = Intent(this, DisplayActivity::class.java)
@@ -40,7 +45,7 @@ class MainActivity : AppCompatActivity() {
             val type: String
             if(boulderClimb.isChecked) type = "Boulder"
             else type = "Roped Climb"
-            val newClimb = ClimbInfo(type, mainClimbName.toString(), mainClimbGrade.toString(), mainClimbDate.toString())
+            val newClimb = ClimbInfo(type, mainClimbName.text.toString(), mainClimbGrade.text.toString(), mainClimbDate.text.toString())
             climbsList.add(newClimb)
             mainClimbName.setText("")
             mainClimbGrade.setText("")
