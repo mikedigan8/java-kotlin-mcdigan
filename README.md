@@ -39,3 +39,21 @@ Mike Digan - CSCI 310 - Java-Kotlin Repository for projects
 ### Link to project:
 
 - [Android Project](https://github.com/mikedigan8/java-kotlin-mcdigan/tree/master/ClimbingDocumentation)
+
+<br>
+
+---
+
+<br>
+
+## Description of the Project
+
+---
+
+<br>
+
+- Solve a Kattis problem with a difficulty of 2.5 or higher using either Java or Kotlin
+- Create tests to make sure the algorithm is working as expected
+### Link to project:
+
+- [Kattis Problems](https://github.com/mikedigan8/java-kotlin-mcdigan/tree/master/KattisProblems)
