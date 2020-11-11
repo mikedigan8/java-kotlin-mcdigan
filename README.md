@@ -25,6 +25,26 @@ Mike Digan - CSCI 310 - Java-Kotlin Repository for projects
 
 <br>
 
+## Project 3
+
+---
+
+<br>
+
+- Create a collections framework
+- Implement a sorting method into the collections
+
+### Link to project:
+
+- [Project 3](https://github.com/mikedigan8/java-kotlin-mcdigan/tree/master/Collections/app/src)
+
+
+<br>
+
+---
+
+<br>
+
 ## Android Project
 
 ---
