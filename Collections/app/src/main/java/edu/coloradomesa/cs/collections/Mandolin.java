@@ -1,6 +1,6 @@
 package edu.coloradomesa.cs.collections;
 
-public class Mandolin implements Comparable<Mandolin> {
+public class Mandolin {
 
     private String manufactureNumber;
 
@@ -138,10 +138,5 @@ public class Mandolin implements Comparable<Mandolin> {
             this.stringMax = strings;
         }
         this.manufactureNumber = manufactureNumber;
-    }
-
-    @Override
-    public int compareTo(Mandolin other) {
-        return this.manufactureNumber.compareTo(other.manufactureNumber);
     }
 }

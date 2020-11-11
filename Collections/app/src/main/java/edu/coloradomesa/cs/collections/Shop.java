@@ -1,22 +1,32 @@
 package edu.coloradomesa.cs.collections;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Hashtable;
-import java.util.List;
 
 public class Shop {
-    Hashtable<Integer, Mandolin> Mandolins = new Hashtable<Integer, Mandolin>();
+    ArrayList<Mandolin> Mandolins = new ArrayList<Mandolin>();
 
-    public void sort(ArrayList<Mandolin> m) {
-        Collections.sort(m);
+    public void sortem() {
+        Mandolin temp;
+        for(int i = 0; i < Mandolins.size(); i++) {
+            for(int j = i; j < Mandolins.size() - 1; j++) {
+                if(Mandolins.get(j).getManufactureNumber().hashCode() > Mandolins.get(j + 1).getManufactureNumber().hashCode()) {
+                    temp = Mandolins.get(j);
+                    Mandolins.set(j, Mandolins.get(j + 1));
+                    Mandolins.set(j + 1, temp);
+                }
+            }
+        }
     }
 
     public void AddMandolin(Mandolin mandolin) {
-        Mandolins.put(mandolin.getManufactureNumber().hashCode(),mandolin);
+        Mandolins.add(mandolin);
     }
 
     public void DeleteMandolin(String manNum) {
-        Mandolins.remove(manNum);
+        for(int i = 0; i < Mandolins.size(); i++) {
+            if(Mandolins.get(i).getManufactureNumber() == manNum) {
+                Mandolins.remove(i);
+            }
+        }
     }
 }
