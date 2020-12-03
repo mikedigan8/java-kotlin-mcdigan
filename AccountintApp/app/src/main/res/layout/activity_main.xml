@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/add_account_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="@string/add_account"
+        app:layout_constraintBaseline_toBaselineOf="@+id/add_transaction_main"
+        app:layout_constraintEnd_toStartOf="@+id/add_transaction_main"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/add_transaction_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:onClick="toTransactionPage"
+        android:text="@string/transaction"
+        app:layout_constraintEnd_toStartOf="@+id/view_Income_statement_main"
+        app:layout_constraintStart_toEndOf="@+id/add_account_main"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/view_Income_statement_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:text="@string/income_statement"
+        app:layout_constraintBaseline_toBaselineOf="@+id/add_transaction_main"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/add_transaction_main" />
+
+    <TextView
+        android:id="@+id/account_name"
+        android:layout_width="165dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="218dp"
+        android:text="@string/account_name"
+        android:textAlignment="textStart"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/account_type"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/account_type"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/account_name"
+        app:layout_constraintTop_toBottomOf="@+id/account_name" />
+
+    <TextView
+        android:id="@+id/starting_value"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/starting_amount"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/account_type"
+        app:layout_constraintTop_toBottomOf="@+id/account_type" />
+
+    <EditText
+        android:id="@+id/name_on_account"
+        android:layout_width="165dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="218dp"
+        android:ems="10"
+        android:hint="@string/account_name"
+        android:inputType="text"
+        android:singleLine="false"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/type_account"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/amount_start"
+        android:layout_width="165dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:hint="@string/amount"
+        android:inputType="text"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/starting_value" />
+
+    <Spinner
+        android:id="@+id/type_account"
+        android:layout_width="165dp"
+        android:layout_height="35dp"
+        android:entries="@array/accounts_array"
+        app:layout_constraintEnd_toEndOf="@+id/amount_start"
+        app:layout_constraintTop_toTopOf="@+id/account_type" />
+
+    <Button
+        android:id="@+id/add_new_account_main"
+        android:layout_width="165dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="20dp"
+        android:onClick="addAccount"
+        android:text="@string/add_new_account"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/amount_start" />
+
+    <TextView
+        android:id="@+id/error_message"
+        android:layout_width="369dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginBottom="80dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
