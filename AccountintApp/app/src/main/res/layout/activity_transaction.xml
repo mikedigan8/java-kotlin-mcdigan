@@ -209,16 +209,6 @@
         app:layout_constraintStart_toStartOf="@+id/amount_account3_transaction"
         app:layout_constraintTop_toTopOf="@+id/account4_transaction" />
 
-    <Button
-        android:id="@+id/post_transaction_transaction"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
-        android:onClick="postTransaction"
-        android:text="@string/post_trannsaction"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/amount_account4_transaction" />
-
     <TextView
         android:id="@+id/error_transaction"
         android:layout_width="331dp"
@@ -229,5 +219,26 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/clear_entries"
+        android:layout_width="168dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:onClick="clearBoard"
+        android:text="@string/clear_entries"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/post_transaction_transaction" />
+
+    <Button
+        android:id="@+id/post_transaction_transaction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="100dp"
+        android:onClick="postTransaction"
+        android:text="@string/post_trannsaction"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/amount_account4_transaction" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -37,9 +37,11 @@ public class MainActivity extends AppCompatActivity {
             error.setText(R.string.error_mssg);
         }
         else {
-            error.setText("");
+            error.setText(acct + " added");
             Account knew = new Account(acct,type,Integer.parseInt(val));
             Accounts.add(knew);
+            tAcct.setText("");
+            tVal.setText("");
         }
     }
 
