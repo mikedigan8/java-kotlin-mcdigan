@@ -8,8 +8,6 @@ import android.view.View;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -47,6 +45,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void toTransactionPage(View view) {
         Intent i = new Intent(this, TransactionActivity.class);
+        i.putParcelableArrayListExtra("accountsList",Accounts);
+        startActivity(i);
+    }
+
+    public void toStatementPage(View view) {
+        Intent i = new Intent(this, StatementActivity.class);
         i.putParcelableArrayListExtra("accountsList",Accounts);
         startActivity(i);
     }

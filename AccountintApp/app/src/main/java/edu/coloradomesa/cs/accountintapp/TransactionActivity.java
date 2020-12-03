@@ -18,11 +18,18 @@ public class TransactionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transaction);
-        Accounts = getIntent().getParcelableArrayListExtra("accountsList");
+        ArrayList<Account> tempAccounts = getIntent().getParcelableArrayListExtra("accountsList");
+        if(tempAccounts != null) Accounts = tempAccounts;
     }
 
     public void toMainAct(View view) {
         Intent i = new Intent(this, MainActivity.class);
+        i.putParcelableArrayListExtra("accountsList",Accounts);
+        startActivity(i);
+    }
+
+    public void toStatementAct(View view) {
+        Intent i = new Intent(this, StatementActivity.class);
         i.putParcelableArrayListExtra("accountsList",Accounts);
         startActivity(i);
     }
@@ -230,11 +237,6 @@ public class TransactionActivity extends AppCompatActivity {
                     }
                 }
             }
-        }
-        for(int n = 0; n < Accounts.size(); n++) {
-            System.out.println(Accounts.get(n).getAcctType());
-            System.out.println(Accounts.get(n).getAcctName());
-            System.out.println(Accounts.get(n).getValue());
         }
         tAcct1.setText("");
         tAcct2.setText("");
