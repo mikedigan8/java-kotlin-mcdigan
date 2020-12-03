@@ -35,6 +35,7 @@ public class TransactionActivity extends AppCompatActivity {
     }
 
     public void postTransaction(View view) {
+        boolean wasError = false;
         int ans1, ans2, ans3, ans4;
         String acct1Name, acct1Val, acct2Name, acct2Val, acct3Name, acct3Val, acct4Name, acct4Val;
         TextView tAcct1 = (TextView) findViewById(R.id.account1_transaction);
@@ -66,6 +67,7 @@ public class TransactionActivity extends AppCompatActivity {
         error.setText("");
         if(ans1 == -1 || ans2 == -1 || acct1Name.equals("") || acct2Name.equals("") || acct1Val.equals("") || acct2Val.equals("")) {
             error.setText(R.string.error_transaction);
+            wasError = true;
         }
         else {
             int i, j, k, l, debits = 0, credits = 0;
@@ -74,8 +76,14 @@ public class TransactionActivity extends AppCompatActivity {
                 else acct1Type = 'c';
                 if (((RadioButton)findViewById(R.id.dr_account2_transaction)).isChecked()) acct2Type = 'd';
                 else acct2Type = 'c';
-                if(Integer.parseInt(acct1Val) != Integer.parseInt(acct2Val)) error.setText(R.string.dr_cr_dont_equal);
-                else if(acct1Type == acct2Type) error.setText(R.string.one_dr_cr);
+                if(Integer.parseInt(acct1Val) != Integer.parseInt(acct2Val)) {
+                    error.setText(R.string.dr_cr_dont_equal);
+                    wasError = true;
+                }
+                else if(acct1Type == acct2Type) {
+                    error.setText(R.string.one_dr_cr);
+                    wasError = true;
+                }
                 else {
                     for (i = 0; i < Accounts.size(); i++) {
                         if (Accounts.get(i).getAcctName().equals(acct1Name)) break;
@@ -102,7 +110,10 @@ public class TransactionActivity extends AppCompatActivity {
                 }
             }
             else if(ans4 == -1) {
-                if(acct3Name.equals("") || acct3Val.equals("")) error.setText(R.string.error_transaction);
+                if(acct3Name.equals("") || acct3Val.equals("")) {
+                    error.setText(R.string.error_transaction);
+                    wasError = true;
+                }
                 else {
                     if (((RadioButton) findViewById(R.id.dr_account1_transaction)).isChecked())
                         acct1Type = 'd';
@@ -131,7 +142,10 @@ public class TransactionActivity extends AppCompatActivity {
                         else credits += Integer.parseInt(acct2Val);
                         if (acct3Type == 'd') debits += Integer.parseInt(acct3Val);
                         else credits += Integer.parseInt(acct3Val);
-                        if (debits != credits) error.setText(R.string.dr_cr_dont_equal);
+                        if (debits != credits) {
+                            error.setText(R.string.dr_cr_dont_equal);
+                            wasError = true;
+                        }
                         else {
                             if(Accounts.get(i).getAcctType().equals("Asset")) {
                                 if(acct1Type == 'd') Accounts.get(i).setValue(Integer.parseInt(acct1Val));
@@ -162,7 +176,10 @@ public class TransactionActivity extends AppCompatActivity {
                 }
             }
             else {
-                if(acct4Name.equals("") || acct4Val.equals("")) error.setText(R.string.error_transaction);
+                if(acct4Name.equals("") || acct4Val.equals("")) {
+                    error.setText(R.string.error_transaction);
+                    wasError = true;
+                }
                 else {
                     if (((RadioButton) findViewById(R.id.dr_account1_transaction)).isChecked())
                         acct1Type = 'd';
@@ -176,8 +193,10 @@ public class TransactionActivity extends AppCompatActivity {
                     if (((RadioButton) findViewById(R.id.dr_account4_transaction)).isChecked())
                         acct4Type = 'd';
                     else acct4Type = 'c';
-                    if (acct1Type == acct2Type && acct1Type == acct3Type && acct1Type == acct4Type)
+                    if (acct1Type == acct2Type && acct1Type == acct3Type && acct1Type == acct4Type) {
+                        wasError = true;
                         error.setText(R.string.one_dr_cr);
+                    }
                     else {
                         for (i = 0; i < Accounts.size(); i++) {
                             if (Accounts.get(i).getAcctName().equals(acct1Name)) break;
@@ -199,7 +218,10 @@ public class TransactionActivity extends AppCompatActivity {
                         else credits += Integer.parseInt(acct3Val);
                         if (acct3Type == 'd') debits += Integer.parseInt(acct4Val);
                         else credits += Integer.parseInt(acct4Val);
-                        if (debits != credits) error.setText(R.string.dr_cr_dont_equal);
+                        if (debits != credits) {
+                            error.setText(R.string.dr_cr_dont_equal);
+                            wasError = true;
+                        }
                         else {
                             if(Accounts.get(i).getAcctType().equals("Asset")) {
                                 if(acct1Type == 'd') Accounts.get(i).setValue(Integer.parseInt(acct1Val));
@@ -238,19 +260,21 @@ public class TransactionActivity extends AppCompatActivity {
                 }
             }
         }
-        tAcct1.setText("");
-        tAcct2.setText("");
-        tAcct3.setText("");
-        tAcct4.setText("");
-        tVals1.setText("");
-        tVals2.setText("");
-        tVals3.setText("");
-        tVals4.setText("");
-        acct1.clearCheck();
-        acct2.clearCheck();
-        acct3.clearCheck();
-        acct4.clearCheck();
-        error.setText(R.string.posted);
+        if(!wasError) {
+            tAcct1.setText("");
+            tAcct2.setText("");
+            tAcct3.setText("");
+            tAcct4.setText("");
+            tVals1.setText("");
+            tVals2.setText("");
+            tVals3.setText("");
+            tVals4.setText("");
+            acct1.clearCheck();
+            acct2.clearCheck();
+            acct3.clearCheck();
+            acct4.clearCheck();
+            error.setText(R.string.posted);
+        }
     }
 
     public void clearBoard(View view) {
