@@ -66,7 +66,13 @@ Mike Digan - CSCI 310 - Java-Kotlin Repository for projects
 
 <br>
 
-## Description of the Project
+## Kattis Problems
+
+---
+
+<br>
+
+### Description of the Project
 
 ---
 
@@ -77,3 +83,28 @@ Mike Digan - CSCI 310 - Java-Kotlin Repository for projects
 ### Link to project:
 
 - [Kattis Problems](https://github.com/mikedigan8/java-kotlin-mcdigan/tree/master/KattisProblems)
+
+<br>
+
+---
+
+<br>
+
+## Final Project
+
+---
+
+<br>
+
+### Description of the Project
+
+---
+
+<br>
+
+- Use Java or Kotlin to "solve a problem"
+- Demonstrate its use and provide screenshots of the working project
+
+### Link to project:
+
+- [Accounting App](https://github.com/mikedigan8/java-kotlin-mcdigan/tree/master/AccountintApp)
