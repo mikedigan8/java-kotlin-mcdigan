@@ -18,3 +18,12 @@
 <br>
 
 The accounting application will allow for basic bookkeeping to take place. The app lets the user to add new accounts with existing amounts, make transactions using the accounts, and view a generated balance sheet. The app manages all of the math involved with some of the tricky accounting principles so the user just has to keep track of which accounts are being used.
+
+<br>
+
+## Link to Video
+
+---
+- [Zoom Link](https://coloradomesa.zoom.us/rec/share/JtBrlMokPSUXBco36xCroUEZLrS-oQdcEwxQ8hL4-HUDIZcgZHpY2dgJk2FkrrJ8.su5sZxnlpOTIbieR?startTime=1607011731000)
+
+<br>

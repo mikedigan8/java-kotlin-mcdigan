@@ -216,7 +216,7 @@ public class TransactionActivity extends AppCompatActivity {
                         else credits += Integer.parseInt(acct2Val);
                         if (acct3Type == 'd') debits += Integer.parseInt(acct3Val);
                         else credits += Integer.parseInt(acct3Val);
-                        if (acct3Type == 'd') debits += Integer.parseInt(acct4Val);
+                        if (acct4Type == 'd') debits += Integer.parseInt(acct4Val);
                         else credits += Integer.parseInt(acct4Val);
                         if (debits != credits) {
                             error.setText(R.string.dr_cr_dont_equal);

@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 Account a7 = new Account("Common Stock", "Owner's Equity", 7000);
                 Account a8 = new Account("Retained Earnings", "Owner's Equity", 3000);
                 Account a9 = new Account("AOCI", "Owner's Equity", 3000);
+                Account a10 = new Account("Goodwill", "Asset", 1000);
                 Accounts.add(a0);
                 Accounts.add(a1);
                 Accounts.add(a2);
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 Accounts.add(a7);
                 Accounts.add(a8);
                 Accounts.add(a9);
+                Accounts.add(a10);
             }
             else {
                 error.setText(acct + " added");
